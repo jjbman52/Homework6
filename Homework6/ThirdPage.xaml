@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Homework6;assembly=Homework6"
+    x:Class="Homework6.ThirdPage">
+    <ContentPage.BindingContext>
+        <local:ThirdPageView Color="blue" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="textColor"
+                        x:TypeArguments="Color">
+                <On Platform="iOS" Value="Red" />
+                <On Platform="Android" Value="Blue" />
+            </OnPlatform>
+
+            <x:Double x:Key="fontSize">24</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <RelativeLayout>
+        <BoxView Color="{Binding Color}"
+                 HeightRequest="70" WidthRequest="200"
+                 RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-100}"
+    RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=.4,
+                             Constant=-100}" />
+
+        <Label Text="{Binding Hue, StringFormat='Hue = {0:F2}'}"
+               TextColor="{StaticResource textColor}"
+                FontSize="{StaticResource fontSize}"
+               RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.4,
+                             Constant=-100}"
+    RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=.62,
+                             Constant=-100}" />
+
+        <Slider Value="{Binding Hue, Mode=TwoWay}"
+                WidthRequest="200"
+                RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-100}"
+    RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=.7,
+                             Constant=-100}" />
+
+        <Label Text="{Binding Saturation, StringFormat='Saturation = {0:F2}'}"
+               TextColor="{StaticResource textColor}"
+                FontSize="{StaticResource fontSize}"
+               RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.4,
+                             Constant=-100}"
+    RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=.75,
+                             Constant=-100}" />
+
+        <Slider Value="{Binding Saturation, Mode=TwoWay}"
+                WidthRequest="200"
+                RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-100}"
+    RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=.83,
+                             Constant=-100}" />
+
+        <Label Text="{Binding Luminosity, StringFormat='Luminosity = {0:F2}'}"
+               TextColor="{StaticResource textColor}"
+                FontSize="{StaticResource fontSize}"
+               RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.4,
+                             Constant=-100}"
+    RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=.88,
+                             Constant=-100}" />
+
+        <Slider Value="{Binding Luminosity, Mode=TwoWay}"
+                WidthRequest="200"
+                RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-100}"
+                RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.96,
+                             Constant=-100}" />
+
+        <Button Text="Back"
+                Clicked="NavigateButton_OnClicked"
+                TextColor="{StaticResource textColor}"
+                FontSize="{StaticResource fontSize}"
+                HeightRequest="60" WidthRequest="100"
+                RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.7,
+                             Constant=-100}"
+    RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1.01,
+                             Constant=-100}" />
+    </RelativeLayout>
+</ContentPage>
